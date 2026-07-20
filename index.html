@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth Camp '24 — FAQ | Leeds YPG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest:#16332B;
+    --forest-deep:#0D211B;
+    --cream:#F3ECDA;
+    --gold:#D4A73D;
+    --clay:#B8452F;
+    --ink:#1C1B17;
+    --sage:#7C9A82;
+    --line: rgba(243,236,218,0.18);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3{font-family:'Fraunces', serif; margin:0; color:var(--forest);}
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    text-transform:uppercase;
+    letter-spacing:0.12em;
+    font-size:0.72rem;
+    color:var(--gold);
+  }
+
+  /* HERO */
+  .hero{
+    background:radial-gradient(1200px 500px at 15% -10%, #1E4536 0%, var(--forest) 45%, var(--forest-deep) 100%);
+    color:var(--cream);
+    padding:3.2rem 1.5rem 2.6rem;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-60px; top:-60px;
+    width:260px; height:260px;
+    border:1px solid rgba(212,167,61,0.35);
+    border-radius:50%;
+  }
+  .hero-inner{max-width:760px; margin:0 auto; position:relative; z-index:1;}
+  .hero h1{
+    font-size:clamp(2.1rem, 6vw, 3.2rem);
+    font-weight:700;
+    margin-top:0.6rem;
+    line-height:1.05;
+  }
+  .hero p.lede{
+    max-width:52ch;
+    margin-top:0.9rem;
+    color:rgba(243,236,218,0.82);
+    font-size:1.02rem;
+  }
+  .hero-meta{
+    display:flex; flex-wrap:wrap; gap:0.6rem;
+    margin-top:1.6rem;
+  }
+  .hero-meta span{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    border:1px solid var(--line);
+    padding:0.35rem 0.7rem;
+    border-radius:999px;
+    color:var(--cream);
+  }
+
+  /* NAV */
+  nav.quicknav{
+    position:sticky; top:0; z-index:20;
+    background:var(--forest-deep);
+    border-bottom:1px solid var(--line);
+    overflow-x:auto;
+    white-space:nowrap;
+    padding:0.65rem 1rem;
+    scrollbar-width:none;
+  }
+  nav.quicknav::-webkit-scrollbar{display:none;}
+  nav.quicknav a{
+    color:var(--cream);
+    text-decoration:none;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    margin-right:1.4rem;
+    opacity:0.7;
+    padding-bottom:2px;
+    border-bottom:2px solid transparent;
+    transition:opacity 0.15s, border-color 0.15s;
+  }
+  nav.quicknav a:hover{opacity:1; border-color:var(--gold);}
+
+  main{max-width:760px; margin:0 auto; padding:0 1.5rem;}
+
+  section{padding:2.8rem 0; border-bottom:1px solid rgba(28,27,23,0.09);}
+  section:last-of-type{border-bottom:none;}
+  section h2{
+    font-size:1.55rem;
+    font-weight:600;
+    margin-bottom:1.2rem;
+  }
+  section h2 .num{
+    color:var(--gold);
+    -webkit-text-stroke:1px var(--forest);
+    color:transparent;
+    font-weight:700;
+    margin-right:0.5rem;
+  }
+
+  /* FAQ ACCORDION */
+  .faq-item{
+    border:1px solid rgba(28,27,23,0.14);
+    border-radius:10px;
+    margin-bottom:0.7rem;
+    background:#fff;
+    overflow:hidden;
+  }
+  .faq-q{
+    width:100%;
+    text-align:left;
+    background:none;
+    border:none;
+    padding:0.95rem 1.1rem;
+    font-family:'Work Sans', sans-serif;
+    font-weight:600;
+    font-size:0.98rem;
+    color:var(--forest);
+    cursor:pointer;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:1rem;
+  }
+  .faq-q .plus{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--gold);
+    font-size:1.1rem;
+    flex-shrink:0;
+    transition:transform 0.2s ease;
+  }
+  .faq-item.open .plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.25s ease;
+    padding:0 1.1rem;
+  }
+  .faq-item.open .faq-a{padding-bottom:1rem;}
+  .faq-a p{margin:0; font-size:0.94rem; color:#3a3730;}
+  .faq-a p + p{margin-top:0.6rem;}
+
+  /* PRICING */
+  .price-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
+    gap:0.7rem;
+    margin-top:1rem;
+  }
+  .price-card{
+    background:var(--forest);
+    color:var(--cream);
+    border-radius:10px;
+    padding:1rem;
+  }
+  .price-card .amt{
+    font-family:'Fraunces', serif;
+    font-size:1.7rem;
+    color:var(--gold);
+    display:block;
+  }
+  .price-card .lbl{
+    font-size:0.8rem;
+    color:rgba(243,236,218,0.75);
+  }
+
+  /* TIMELINE */
+  .timeline{position:relative; margin-top:1.6rem; padding-left:2.4rem;}
+  .timeline::before{
+    content:"";
+    position:absolute; left:0.85rem; top:0.4rem; bottom:0.4rem;
+    width:2px;
+    background:linear-gradient(var(--gold), var(--sage));
+  }
+  .day{position:relative; margin-bottom:2rem;}
+  .day:last-child{margin-bottom:0;}
+  .day::before{
+    content: attr(data-num);
+    position:absolute; left:-2.4rem; top:-0.3rem;
+    width:1.8rem; height:1.8rem;
+    background:var(--gold);
+    color:var(--forest-deep);
+    border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-weight:700; font-size:0.78rem;
+  }
+  .day h3{font-size:1.15rem; margin-bottom:0.15rem;}
+  .day .date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--sage);
+    text-transform:uppercase;
+  }
+  .day ul{margin:0.6rem 0 0; padding-left:1.1rem;}
+  .day li{margin-bottom:0.3rem; font-size:0.94rem;}
+
+  .callout{
+    background:#FCEFE9;
+    border-left:3px solid var(--clay);
+    padding:0.9rem 1.1rem;
+    border-radius:6px;
+    font-size:0.92rem;
+    margin-top:1rem;
+  }
+  .callout strong{color:var(--clay);}
+
+  footer{
+    background:var(--forest-deep);
+    color:rgba(243,236,218,0.7);
+    padding:2.2rem 1.5rem;
+    text-align:center;
+    font-size:0.85rem;
+  }
+  footer a{color:var(--gold);}
+  footer .updated{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.05em;
+    margin-top:0.6rem;
+    color:rgba(243,236,218,0.45);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    .faq-a, .faq-q .plus{transition:none;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Leeds YPG presents</span>
+    <h1>Youth Camp '24<br>— Frequently Asked Questions</h1>
+    <p class="lede">Everything you need to know before Thursday: venue, travel, pricing, the full programme line-up, and what to pack.</p>
+    <div class="hero-meta">
+      <span>📍 Life Centre Events, Bradford</span>
+      <span>🛏 Travelodge Bradford Central</span>
+      <span>🗓 18–21 July</span>
+    </div>
+  </div>
+</div>
+
+<nav class="quicknav">
+  <a href="#venue">Venue</a>
+  <a href="#travel">Travel</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#programme">Programme</a>
+  <a href="#food">Food & Dress</a>
+  <a href="#logistics">Logistics</a>
+  <a href="#support">Support</a>
+</nav>
+
+<main>
+
+  <section id="venue">
+    <h2><span class="num">01</span>Venue</h2>
+    <div class="faq-item">
+      <button class="faq-q">Where is Youth Camp '24 being held?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>This year's camp is hosted by Leeds YPG at Life Centre Events in Bradford. Accommodation is included in the Standard Ticket and will be allocated at Travelodge Bradford Central.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How will rooms be allocated?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Rooms will be allocated ahead of the day. The aim is for guilders to get to know one another and build relationships during the stay, while keeping allocations fair.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="travel">
+    <h2><span class="num">02</span>Getting there</h2>
+    <div class="faq-item">
+      <button class="faq-q">How is transport organised?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Transport to camp and back should be organised by your local executives. If that isn't possible, contact the district executives at <strong>ypgmidlands@gmail.com</strong> to discuss your options.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Driving down — where should I go?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Head to Faith PCG (address sent closer to the date) by 1PM on Thursday afternoon for the smoothest arrival.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Coming by train?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Arrive at Leeds train station and arrangements will be made to pick you up. Let your local president know in advance so they can coordinate with the Midlands District Execs.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">I can only make it for the day — what do I do?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Head straight to the venue, Life Centre Events, from 5PM onwards. This applies to Thursday-only attendance.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2><span class="num">03</span>Pricing</h2>
+    <p>Ticket prices are lower than last year — the District has contributed significantly toward camp costs to keep it affordable and make sure everyone can attend and grow in their relationship with God.</p>
+    <div class="price-grid">
+      <div class="price-card"><span class="amt">£135</span><span class="lbl">Standard Ticket (full camp + accommodation)</span></div>
+      <div class="price-card"><span class="amt">£60</span><span class="lbl">Ultimate Day Pass</span></div>
+      <div class="price-card"><span class="amt">£50</span><span class="lbl">Fri + Sat full day, meals included</span></div>
+      <div class="price-card"><span class="amt">£25</span><span class="lbl">Single day — Friday or Saturday</span></div>
+      <div class="price-card"><span class="amt">£10</span><span class="lbl">Thursday evening only, from 5PM</span></div>
+    </div>
+    <div class="faq-item" style="margin-top:0.9rem;">
+      <button class="faq-q">What if I can't make payment?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Get in touch so the team can suggest ways to support you — via the website, email, social media, or any district executive.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">How do I register and pay?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Registration has closed; payments are collected via <strong>www.ypgmld.co.uk</strong>. Deadline: Sunday 30th June, 12PM. If you haven't registered but still want to join, email the team — spaces are limited but they'll try to accommodate you.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What's the refund policy?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Refunds are a 50/50 split, since the camp carries a liability with the hotel for every registered attendee. Contact the team for more detail.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="programme">
+    <h2><span class="num">04</span>Programme line-up</h2>
+    <div class="timeline">
+      <div class="day" data-num="Th">
+        <div class="date">Thursday 18th</div>
+        <h3>Arrivals & Ice-breaker</h3>
+        <ul>
+          <li>Arrivals</li>
+          <li>Ice-breaker</li>
+          <li>Evening session</li>
+        </ul>
+      </div>
+      <div class="day" data-num="Fr">
+        <div class="date">Friday 19th</div>
+        <h3>Prayer, seminars & the Gala</h3>
+        <ul>
+          <li>Morning devotion</li>
+          <li>Morning session</li>
+          <li>1 hour prayer charge</li>
+          <li>Seminar</li>
+          <li>Sports and BBQ afternoon</li>
+          <li>Gala / YPG Awards Night</li>
+        </ul>
+      </div>
+      <div class="day" data-num="Sa">
+        <div class="date">Saturday 20th</div>
+        <h3>Sermon on the Mount</h3>
+        <ul>
+          <li>Morning devotion</li>
+          <li>Sermon on the Mount</li>
+          <li>Seminar</li>
+          <li>Afternoon session, incl. football tournament</li>
+          <li>Revival night</li>
+        </ul>
+      </div>
+      <div class="day" data-num="Su">
+        <div class="date">Sunday 21st</div>
+        <h3>Joint service & departures</h3>
+        <ul>
+          <li>Joint service</li>
+          <li>Departures</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="food">
+    <h2><span class="num">05</span>Food & dress code</h2>
+    <div class="faq-item">
+      <button class="faq-q">What food can I expect?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Feedback from last year has been taken on board — local Ghanaian dishes will be served. A detailed menu will be shared closer to the date.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">What should I wear?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Dress comfortably, but modestly, to represent the Presbyterian Church of Ghana throughout the stay.</p>
+        <p>For the Gala/YPG Awards Night: tuxedo and evening dress. For Saturday evening, every guilder is asked to wear a touch of white. Don't forget sports gear for sports day — a packing list follows soon.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="logistics">
+    <h2><span class="num">06</span>Other logistics</h2>
+    <div class="faq-item">
+      <button class="faq-q">I'm not part of the Presby church — can I still come?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Yes — everyone is welcome, including brothers and sisters from the North and South London Districts.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Will I be photographed or filmed?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Photos and videos will be taken throughout camp, including on social media and livestreams. If you'd prefer not to be included, email <strong>ypgmidlands@gmail.com</strong> with your full name stating so. No response is taken as consent to be included.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <strong>Note:</strong> the programme times above are subject to change — check the official channels closer to the date for the finalised run of show.
+    </div>
+  </section>
+
+  <section id="support">
+    <h2><span class="num">07</span>Support the camp</h2>
+    <div class="faq-item">
+      <button class="faq-q">I'd like to support or sow a seed into this camp<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>Fill in the contact form on the website, or email <strong>ypgmidlands@gmail.com</strong>, and the team will be in touch. Every amount is appreciated — God bless you for it.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Leeds YPG · Youth Camp '24 — questions? <a href="mailto:ypgmidlands@gmail.com">ypgmidlands@gmail.com</a>
+  <div class="updated">This page is updated periodically — reload if you've had it open a while.</div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-a');
+      const isOpen = item.classList.contains('open');
+      if(isOpen){
+        item.classList.remove('open');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
