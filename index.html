@@ -113,6 +113,27 @@
   }
   nav.quicknav a:hover{opacity:1; border-color:var(--gold);}
 
+  .quicknav-bar{display:none;}
+  .nav-brand{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.74rem;
+    color:var(--cream);
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    opacity:0.85;
+  }
+  .nav-toggle{
+    display:none;
+    background:none;
+    border:1px solid var(--line);
+    border-radius:6px;
+    color:var(--cream);
+    font-size:1.15rem;
+    line-height:1;
+    padding:0.35rem 0.6rem;
+    cursor:pointer;
+  }
+
   main{max-width:760px; margin:0 auto; padding:0 1.5rem;}
 
   section{padding:2.8rem 0; border-bottom:1px solid rgba(28,27,23,0.09);}
@@ -260,38 +281,71 @@
 
   @media (max-width: 600px){
     .hero{padding:2.2rem 1.1rem 2rem;}
-    .hero h1{font-size:1.85rem;}
-    .hero p.lede{font-size:0.94rem;}
-    .hero-meta span{font-size:0.66rem; padding:0.3rem 0.55rem;}
+    .hero h1{font-size:2.05rem;}
+    .hero p.lede{font-size:1rem;}
+    .hero-meta span{font-size:0.7rem; padding:0.32rem 0.6rem;}
 
-    nav.quicknav{padding:0.6rem 1.1rem;}
-    nav.quicknav a{font-size:0.68rem; margin-right:1.1rem;}
+    nav.quicknav{
+      padding:0.65rem 1.1rem;
+      flex-direction:column;
+      align-items:stretch;
+      overflow:visible;
+      white-space:normal;
+      position:relative;
+    }
+    .quicknav-bar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      width:100%;
+    }
+    .nav-toggle{display:inline-flex; align-items:center; justify-content:center;}
+    .quicknav-inner{
+      display:none;
+      flex-direction:column;
+      width:100%;
+      max-width:none;
+      position:absolute;
+      top:100%; left:0; right:0;
+      background:var(--forest-deep);
+      border-bottom:1px solid var(--line);
+      padding:0.3rem 1.1rem 0.8rem;
+      z-index:30;
+    }
+    .quicknav-inner.open{display:flex;}
+    nav.quicknav a{
+      margin-right:0;
+      font-size:0.9rem;
+      padding:0.75rem 0;
+      border-bottom:1px solid var(--line);
+    }
+    nav.quicknav a:last-child{border-bottom:none;}
 
     main{padding:0 1.1rem;}
     section{padding:2.1rem 0;}
-    section h2{font-size:1.28rem; margin-bottom:1rem;}
+    section h2{font-size:1.42rem; margin-bottom:1rem;}
 
-    .faq-q{padding:0.85rem 0.9rem; font-size:0.92rem;}
-    .faq-a{padding:0 0.9rem;}
-    .faq-a p{font-size:0.9rem;}
+    .faq-q{padding:0.9rem 0.95rem; font-size:1rem;}
+    .faq-a{padding:0 0.95rem;}
+    .faq-a p{font-size:0.97rem;}
 
     .price-grid{grid-template-columns:repeat(2, 1fr);}
-    .price-card{padding:0.85rem;}
-    .price-card .amt{font-size:1.4rem;}
-    .price-card .lbl{font-size:0.74rem;}
+    .price-card{padding:0.9rem;}
+    .price-card .amt{font-size:1.55rem;}
+    .price-card .lbl{font-size:0.82rem;}
 
     .timeline{padding-left:2rem;}
     .timeline::before{left:0.7rem;}
     .day{margin-bottom:1.6rem;}
     .day::before{
-      left:-2rem; width:1.55rem; height:1.55rem; font-size:0.68rem;
+      left:-2rem; width:1.55rem; height:1.55rem; font-size:0.7rem;
     }
-    .day h3{font-size:1.02rem;}
-    .day li{font-size:0.88rem;}
+    .day h3{font-size:1.12rem;}
+    .day li{font-size:0.96rem;}
 
-    .callout{font-size:0.86rem; padding:0.8rem 0.9rem;}
+    .callout{font-size:0.93rem; padding:0.85rem 0.95rem;}
 
-    footer{padding:1.8rem 1.1rem; font-size:0.78rem;}
+    footer{padding:1.8rem 1.1rem; font-size:0.86rem;}
   }
 
   @media (max-width: 380px){
@@ -315,7 +369,11 @@
 </div>
 
 <nav class="quicknav">
-  <div class="quicknav-inner">
+  <div class="quicknav-bar">
+    <span class="nav-brand">Jump to section</span>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+  </div>
+  <div class="quicknav-inner" id="quicknavInner">
     <a href="#venue">Venue</a>
     <a href="#travel">Travel</a>
     <a href="#pricing">Pricing</a>
@@ -514,6 +572,21 @@
         item.classList.add('open');
         answer.style.maxHeight = answer.scrollHeight + 'px';
       }
+    });
+  });
+
+  const navToggle = document.getElementById('navToggle');
+  const quicknavInner = document.getElementById('quicknavInner');
+  navToggle.addEventListener('click', () => {
+    const isOpen = quicknavInner.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    navToggle.textContent = isOpen ? '✕' : '☰';
+  });
+  quicknavInner.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      quicknavInner.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+      navToggle.textContent = '☰';
     });
   });
 </script>
