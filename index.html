@@ -3,69 +3,91 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Youth Camp '24 — FAQ | Leeds YPG</title>
+<title>Youth Camp 2026 — Info & Programme | Midlands District YPG</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --forest:#16332B;
-    --forest-deep:#0D211B;
-    --cream:#F3ECDA;
-    --gold:#D4A73D;
-    --clay:#B8452F;
-    --ink:#1C1B17;
-    --sage:#7C9A82;
-    --line: rgba(243,236,218,0.18);
+    --ink:#18120E;
+    --ink-deep:#0F0B08;
+    --paper:#FAF6EE;
+    --card:#FFFFFF;
+    --ember:#FF6A2B;
+    --ruby:#D62828;
+    --gold:#F2B705;
+    --muted:#6E655B;
+    --line: rgba(24,18,14,0.10);
+    --line-dark: rgba(250,246,238,0.16);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
     margin:0;
-    background:var(--cream);
+    background:var(--paper);
     color:var(--ink);
     font-family:'Work Sans', sans-serif;
     line-height:1.55;
     -webkit-font-smoothing:antialiased;
   }
-  h1,h2,h3{font-family:'Fraunces', serif; margin:0; color:var(--forest);}
   .eyebrow{
     font-family:'IBM Plex Mono', monospace;
     text-transform:uppercase;
-    letter-spacing:0.12em;
-    font-size:0.72rem;
-    color:var(--gold);
+    letter-spacing:0.1em;
+    font-size:0.7rem;
   }
 
   /* HERO */
   .hero{
-    background:radial-gradient(1200px 500px at 15% -10%, #1E4536 0%, var(--forest) 45%, var(--forest-deep) 100%);
-    color:var(--cream);
-    padding:3.2rem 1.5rem 2.6rem;
     position:relative;
+    background:
+      linear-gradient(120deg, rgba(255,106,43,0.22) 0%, transparent 35%),
+      linear-gradient(300deg, rgba(214,40,40,0.28) 0%, transparent 40%),
+      radial-gradient(900px 480px at 20% -10%, #2A1F17 0%, var(--ink) 55%, var(--ink-deep) 100%);
+    color:var(--paper);
+    padding:3rem 1.5rem 2.6rem;
     overflow:hidden;
   }
-  .hero::after{
+  .hero::before{
     content:"";
     position:absolute;
-    right:-60px; top:-60px;
-    width:260px; height:260px;
-    border:1px solid rgba(212,167,61,0.35);
-    border-radius:50%;
+    top:-40%; right:-15%;
+    width:70%; height:180%;
+    background:linear-gradient(115deg, transparent 42%, rgba(242,183,5,0.14) 46%, transparent 50%, rgba(255,106,43,0.14) 54%, transparent 58%);
+    pointer-events:none;
   }
-  .hero-inner{max-width:760px; margin:0 auto; position:relative; z-index:1;}
-  .hero h1{
-    font-size:clamp(2.1rem, 6vw, 3.2rem);
-    font-weight:700;
-    margin-top:0.6rem;
-    line-height:1.05;
-    color:var(--cream);
+  .hero-inner{max-width:780px; margin:0 auto; position:relative; z-index:1;}
+  .hero .eyebrow{color:var(--gold); display:block; line-height:1.5;}
+  .wordmark{
+    margin-top:0.9rem;
+    display:flex; align-items:flex-end; gap:0.9rem; flex-wrap:wrap;
+  }
+  .wordmark h1{
+    margin:0;
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:clamp(3rem, 11vw, 5.2rem);
+    line-height:0.85;
+    letter-spacing:0.01em;
+  }
+  .ribbon{
+    font-family:'Anton', sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(1.1rem, 3vw, 1.5rem);
+    background:linear-gradient(100deg, var(--ruby), var(--ember));
+    color:#fff;
+    padding:0.4rem 1rem 0.45rem;
+    border-radius:3px;
+    letter-spacing:0.03em;
+    margin-bottom:0.35rem;
+    box-shadow:0 6px 18px rgba(214,40,40,0.35);
   }
   .hero p.lede{
-    max-width:52ch;
-    margin-top:0.9rem;
-    color:rgba(243,236,218,0.82);
-    font-size:1.02rem;
+    max-width:54ch;
+    margin-top:1rem;
+    color:rgba(250,246,238,0.82);
+    font-size:1.03rem;
   }
   .hero-meta{
     display:flex; flex-wrap:wrap; gap:0.6rem;
@@ -74,17 +96,18 @@
   .hero-meta span{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.72rem;
-    border:1px solid var(--line);
-    padding:0.35rem 0.7rem;
+    border:1px solid var(--line-dark);
+    padding:0.4rem 0.75rem;
     border-radius:999px;
-    color:var(--cream);
+    color:var(--paper);
+    background:rgba(250,246,238,0.05);
   }
 
   /* NAV */
   nav.quicknav{
     position:sticky; top:0; z-index:20;
-    background:var(--forest-deep);
-    border-bottom:1px solid var(--line);
+    background:var(--ink-deep);
+    border-bottom:1px solid var(--line-dark);
     overflow-x:auto;
     white-space:nowrap;
     padding:0.65rem 1.5rem;
@@ -94,12 +117,12 @@
   }
   nav.quicknav::-webkit-scrollbar{display:none;}
   .quicknav-inner{
-    max-width:760px;
+    max-width:780px;
     width:100%;
     display:flex;
   }
   nav.quicknav a{
-    color:var(--cream);
+    color:var(--paper);
     text-decoration:none;
     font-family:'IBM Plex Mono', monospace;
     font-size:0.72rem;
@@ -117,7 +140,7 @@
   .nav-brand{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.74rem;
-    color:var(--cream);
+    color:var(--paper);
     text-transform:uppercase;
     letter-spacing:0.05em;
     opacity:0.85;
@@ -125,38 +148,42 @@
   .nav-toggle{
     display:none;
     background:none;
-    border:1px solid var(--line);
+    border:1px solid var(--line-dark);
     border-radius:6px;
-    color:var(--cream);
+    color:var(--paper);
     font-size:1.15rem;
     line-height:1;
     padding:0.35rem 0.6rem;
     cursor:pointer;
   }
 
-  main{max-width:760px; margin:0 auto; padding:0 1.5rem;}
+  main{max-width:780px; margin:0 auto; padding:0 1.5rem;}
 
-  section{padding:2.8rem 0; border-bottom:1px solid rgba(28,27,23,0.09);}
+  section{padding:2.8rem 0; border-bottom:1px solid var(--line);}
   section:last-of-type{border-bottom:none;}
   section h2{
-    font-size:1.55rem;
-    font-weight:600;
-    margin-bottom:1.2rem;
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    font-size:1.7rem;
+    margin:0 0 1.2rem;
+    display:flex; align-items:baseline; gap:0.6rem;
   }
   section h2 .num{
-    color:var(--gold);
-    -webkit-text-stroke:1px var(--forest);
-    color:transparent;
-    font-weight:700;
-    margin-right:0.5rem;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.85rem;
+    color:var(--ember);
+    font-weight:600;
   }
+  section > p.intro{color:var(--muted); margin-top:-0.6rem; margin-bottom:1.2rem; font-size:0.96rem;}
 
   /* FAQ ACCORDION */
   .faq-item{
-    border:1px solid rgba(28,27,23,0.14);
+    border:1px solid var(--line);
     border-radius:10px;
     margin-bottom:0.7rem;
-    background:#fff;
+    background:var(--card);
     overflow:hidden;
   }
   .faq-q{
@@ -168,7 +195,7 @@
     font-family:'Work Sans', sans-serif;
     font-weight:600;
     font-size:0.98rem;
-    color:var(--forest);
+    color:var(--ink);
     cursor:pointer;
     display:flex;
     justify-content:space-between;
@@ -177,7 +204,7 @@
   }
   .faq-q .plus{
     font-family:'IBM Plex Mono', monospace;
-    color:var(--gold);
+    color:var(--ember);
     font-size:1.1rem;
     flex-shrink:0;
     transition:transform 0.2s ease;
@@ -190,77 +217,121 @@
     padding:0 1.1rem;
   }
   .faq-item.open .faq-a{padding-bottom:1rem;}
-  .faq-a p{margin:0; font-size:0.94rem; color:#3a3730;}
+  .faq-a p{margin:0; font-size:0.94rem; color:#3a352e;}
   .faq-a p + p{margin-top:0.6rem;}
+  .faq-a ul{margin:0.5rem 0 0; padding-left:1.1rem;}
+  .faq-a li{font-size:0.94rem; margin-bottom:0.3rem;}
 
-  /* PRICING */
-  .price-grid{
+  /* PACK LIST */
+  .pack-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(140px,1fr));
-    gap:0.7rem;
+    grid-template-columns:repeat(auto-fit, minmax(220px,1fr));
+    gap:0.8rem;
     margin-top:1rem;
   }
-  .price-card{
-    background:var(--forest);
-    color:var(--cream);
+  .pack-card{
+    background:var(--ink);
+    color:var(--paper);
     border-radius:10px;
-    padding:1rem;
+    padding:1.1rem 1.2rem;
   }
-  .price-card .amt{
-    font-family:'Fraunces', serif;
-    font-size:1.7rem;
+  .pack-card .tag{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
     color:var(--gold);
-    display:block;
   }
-  .price-card .lbl{
-    font-size:0.8rem;
-    color:rgba(243,236,218,0.75);
+  .pack-card h3{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:1.15rem;
+    margin:0.3rem 0 0.4rem;
   }
+  .pack-card p{margin:0; font-size:0.86rem; color:rgba(250,246,238,0.75);}
 
-  /* TIMELINE */
+  /* TIMELINE / PROGRAMME */
   .timeline{position:relative; margin-top:1.6rem; padding-left:2.4rem;}
   .timeline::before{
     content:"";
     position:absolute; left:0.85rem; top:0.4rem; bottom:0.4rem;
     width:2px;
-    background:linear-gradient(var(--gold), var(--sage));
+    background:linear-gradient(var(--ember), var(--gold));
   }
-  .day{position:relative; margin-bottom:2rem;}
+  .day{position:relative; margin-bottom:2.2rem;}
   .day:last-child{margin-bottom:0;}
   .day::before{
     content: attr(data-num);
     position:absolute; left:-2.4rem; top:-0.3rem;
     width:1.8rem; height:1.8rem;
-    background:var(--gold);
-    color:var(--forest-deep);
+    background:linear-gradient(120deg, var(--ember), var(--ruby));
+    color:#fff;
     border-radius:50%;
     display:flex; align-items:center; justify-content:center;
     font-family:'IBM Plex Mono', monospace;
-    font-weight:700; font-size:0.78rem;
+    font-weight:600; font-size:0.72rem;
   }
-  .day h3{font-size:1.15rem; margin-bottom:0.15rem;}
+  .day h3{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    font-size:1.2rem;
+    margin:0 0 0.1rem;
+  }
   .day .date{
     font-family:'IBM Plex Mono', monospace;
     font-size:0.72rem;
-    color:var(--sage);
+    color:var(--ember);
     text-transform:uppercase;
+    letter-spacing:0.04em;
   }
-  .day ul{margin:0.6rem 0 0; padding-left:1.1rem;}
-  .day li{margin-bottom:0.3rem; font-size:0.94rem;}
+  .daypart{margin-top:1rem;}
+  .daypart-label{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+    color:var(--muted);
+    margin-bottom:0.4rem;
+  }
+  .schedrow{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:0.15rem 0.9rem;
+    padding:0.4rem 0;
+    border-bottom:1px dashed var(--line);
+    font-size:0.92rem;
+  }
+  .schedrow:last-child{border-bottom:none;}
+  .schedrow .time{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.76rem;
+    color:var(--muted);
+    white-space:nowrap;
+    padding-top:0.1rem;
+  }
+  .schedrow .activity{font-weight:600; color:var(--ink);}
+  .schedrow .who{
+    grid-column:2;
+    font-size:0.82rem;
+    color:var(--muted);
+    font-style:italic;
+  }
 
   .callout{
-    background:#FCEFE9;
-    border-left:3px solid var(--clay);
+    background:#FDEEE6;
+    border-left:3px solid var(--ruby);
     padding:0.9rem 1.1rem;
     border-radius:6px;
     font-size:0.92rem;
     margin-top:1rem;
   }
-  .callout strong{color:var(--clay);}
+  .callout strong{color:var(--ruby);}
 
   footer{
-    background:var(--forest-deep);
-    color:rgba(243,236,218,0.7);
+    background:var(--ink-deep);
+    color:rgba(250,246,238,0.7);
     padding:2.2rem 1.5rem;
     text-align:center;
     font-size:0.85rem;
@@ -271,7 +342,7 @@
     font-size:0.68rem;
     letter-spacing:0.05em;
     margin-top:0.6rem;
-    color:rgba(243,236,218,0.45);
+    color:rgba(250,246,238,0.45);
   }
 
   @media (prefers-reduced-motion: reduce){
@@ -281,7 +352,8 @@
 
   @media (max-width: 600px){
     .hero{padding:2.2rem 1.1rem 2rem;}
-    .hero h1{font-size:2.05rem;}
+    .wordmark h1{font-size:clamp(2.6rem, 15vw, 3.4rem);}
+    .ribbon{font-size:1rem; padding:0.32rem 0.8rem;}
     .hero p.lede{font-size:1rem;}
     .hero-meta span{font-size:0.7rem; padding:0.32rem 0.6rem;}
 
@@ -293,12 +365,7 @@
       white-space:normal;
       position:relative;
     }
-    .quicknav-bar{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      width:100%;
-    }
+    .quicknav-bar{display:flex; align-items:center; justify-content:space-between; width:100%;}
     .nav-toggle{display:inline-flex; align-items:center; justify-content:center;}
     .quicknav-inner{
       display:none;
@@ -307,49 +374,33 @@
       max-width:none;
       position:absolute;
       top:100%; left:0; right:0;
-      background:var(--forest-deep);
-      border-bottom:1px solid var(--line);
+      background:var(--ink-deep);
+      border-bottom:1px solid var(--line-dark);
       padding:0.3rem 1.1rem 0.8rem;
       z-index:30;
     }
     .quicknav-inner.open{display:flex;}
-    nav.quicknav a{
-      margin-right:0;
-      font-size:0.9rem;
-      padding:0.75rem 0;
-      border-bottom:1px solid var(--line);
-    }
+    nav.quicknav a{margin-right:0; font-size:0.9rem; padding:0.75rem 0; border-bottom:1px solid var(--line-dark);}
     nav.quicknav a:last-child{border-bottom:none;}
 
     main{padding:0 1.1rem;}
     section{padding:2.1rem 0;}
-    section h2{font-size:1.42rem; margin-bottom:1rem;}
+    section h2{font-size:1.4rem; margin-bottom:1rem;}
 
     .faq-q{padding:0.9rem 0.95rem; font-size:1rem;}
     .faq-a{padding:0 0.95rem;}
-    .faq-a p{font-size:0.97rem;}
+    .faq-a p, .faq-a li{font-size:0.97rem;}
 
-    .price-grid{grid-template-columns:repeat(2, 1fr);}
-    .price-card{padding:0.9rem;}
-    .price-card .amt{font-size:1.55rem;}
-    .price-card .lbl{font-size:0.82rem;}
+    .pack-card{padding:0.95rem 1rem;}
 
     .timeline{padding-left:2rem;}
     .timeline::before{left:0.7rem;}
-    .day{margin-bottom:1.6rem;}
-    .day::before{
-      left:-2rem; width:1.55rem; height:1.55rem; font-size:0.7rem;
-    }
-    .day h3{font-size:1.12rem;}
-    .day li{font-size:0.96rem;}
+    .day::before{left:-2rem; width:1.55rem; height:1.55rem; font-size:0.66rem;}
+    .day h3{font-size:1.05rem;}
+    .schedrow{font-size:0.9rem;}
 
     .callout{font-size:0.93rem; padding:0.85rem 0.95rem;}
-
     footer{padding:1.8rem 1.1rem; font-size:0.86rem;}
-  }
-
-  @media (max-width: 380px){
-    .price-grid{grid-template-columns:1fr;}
   }
 </style>
 </head>
@@ -357,13 +408,16 @@
 
 <div class="hero">
   <div class="hero-inner">
-    <span class="eyebrow">Leeds YPG presents</span>
-    <h1>Youth Camp '24<br>— Frequently Asked Questions</h1>
-    <p class="lede">Everything you need to know before Thursday: venue, travel, pricing, the full programme line-up, and what to pack.</p>
+    <span class="eyebrow">Presbyterian Church of Ghana · Committee on Church Life &amp; Nurture<br>Midlands District Young People's Guild</span>
+    <div class="wordmark">
+      <h1>Youth</h1>
+      <span class="ribbon">Camp 2026</span>
+    </div>
+    <p class="lede">Four days of worship, teaching, and community. Everything you need for arrival, accommodation, the full programme, and what to pack.</p>
     <div class="hero-meta">
-      <span>📍 Life Centre Events, Bradford</span>
-      <span>🛏 Travelodge Bradford Central</span>
-      <span>🗓 18–21 July</span>
+      <span>📍 Yarnfield Park Training &amp; Conference Centre, Staffordshire</span>
+      <span>🗓 27–30 August 2026</span>
+      <span>🕒 Arrival from 3PM Thursday</span>
     </div>
   </div>
 </div>
@@ -374,180 +428,190 @@
     <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
   </div>
   <div class="quicknav-inner" id="quicknavInner">
-    <a href="#venue">Venue</a>
-    <a href="#travel">Travel</a>
-    <a href="#pricing">Pricing</a>
+    <a href="#arrival">Arrival</a>
+    <a href="#accommodation">Rooms</a>
+    <a href="#food">Food</a>
     <a href="#programme">Programme</a>
-    <a href="#food">Food & Dress</a>
-    <a href="#logistics">Logistics</a>
-    <a href="#support">Support</a>
+    <a href="#pack">Pack List</a>
+    <a href="#policies">Policies</a>
   </div>
 </nav>
 
 <main>
 
-  <section id="venue">
-    <h2><span class="num">01</span>Venue</h2>
+  <section id="arrival">
+    <h2><span class="num">01</span>Arrival &amp; Venue</h2>
     <div class="faq-item">
-      <button class="faq-q">Where is Youth Camp '24 being held?<span class="plus">+</span></button>
+      <button class="faq-q">Where and when should I arrive?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>This year's camp is hosted by Leeds YPG at Life Centre Events in Bradford. Accommodation is included in the Standard Ticket and will be allocated at Travelodge Bradford Central.</p>
+        <p>Everyone should aim to arrive by <strong>3PM on Thursday</strong> at Yarnfield Park Training &amp; Conference Centre, Yarnfield, Stone, Staffordshire, <strong>ST15 0NL</strong>. Registration and check-in follow from 4PM, then a welcome session and dinner.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">How will rooms be allocated?<span class="plus">+</span></button>
+      <button class="faq-q">Is there parking on site?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>Rooms will be allocated ahead of the day. The aim is for guilders to get to know one another and build relationships during the stay, while keeping allocations fair.</p>
+        <p>Yes — the centre has parking facilities and it's free of charge. You don't need to register your car in advance.</p>
       </div>
     </div>
   </section>
 
-  <section id="travel">
-    <h2><span class="num">02</span>Getting there</h2>
+  <section id="accommodation">
+    <h2><span class="num">02</span>Accommodation &amp; Rooms</h2>
     <div class="faq-item">
-      <button class="faq-q">How is transport organised?<span class="plus">+</span></button>
+      <button class="faq-q">Where will we be staying?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>Transport to camp and back should be organised by your local executives. If that isn't possible, contact the district executives at <strong>ypgmidlands@gmail.com</strong> to discuss your options.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Driving down — where should I go?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Head to Faith PCG (address sent closer to the date) by 1PM on Thursday afternoon for the smoothest arrival.</p>
+        <p>All residents staying overnight will sleep at Yarnfield Park Training &amp; Conference Centre itself.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">Coming by train?<span class="plus">+</span></button>
+      <button class="faq-q">How are rooms allocated?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>Arrive at Leeds train station and arrangements will be made to pick you up. Let your local president know in advance so they can coordinate with the Midlands District Execs.</p>
+        <p>Rooms are allocated by the executives to help you meet new people from other locals and districts — you'll find out your room on arrival day. Rooms are shared 2 people per bedroom, with en-suite bathrooms, bedroom linen, towels, and soap provided.</p>
       </div>
     </div>
     <div class="faq-item">
-      <button class="faq-q">I can only make it for the day — what do I do?<span class="plus">+</span></button>
+      <button class="faq-q">What about room keys and camp badges?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>Head straight to the venue, Life Centre Events, from 5PM onwards. This applies to Thursday-only attendance.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="pricing">
-    <h2><span class="num">03</span>Pricing</h2>
-    <p>Ticket prices are lower than last year — the District has contributed significantly toward camp costs to keep it affordable and make sure everyone can attend and grow in their relationship with God.</p>
-    <div class="price-grid">
-      <div class="price-card"><span class="amt">£135</span><span class="lbl">Standard Ticket (full camp + accommodation)</span></div>
-      <div class="price-card"><span class="amt">£60</span><span class="lbl">Ultimate Day Pass</span></div>
-      <div class="price-card"><span class="amt">£50</span><span class="lbl">Fri + Sat full day, meals included</span></div>
-      <div class="price-card"><span class="amt">£25</span><span class="lbl">Single day — Friday or Saturday</span></div>
-      <div class="price-card"><span class="amt">£10</span><span class="lbl">Thursday evening only, from 5PM</span></div>
-    </div>
-    <div class="faq-item" style="margin-top:0.9rem;">
-      <button class="faq-q">What if I can't make payment?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Get in touch so the team can suggest ways to support you — via the website, email, social media, or any district executive.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">How do I register and pay?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Registration has closed; payments are collected via <strong>www.ypgmld.co.uk</strong>. Deadline: Sunday 30th June, 12PM. If you haven't registered but still want to join, email the team — spaces are limited but they'll try to accommodate you.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">What's the refund policy?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Refunds are a 50/50 split, since the camp carries a liability with the hotel for every registered attendee. Contact the team for more detail.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="programme">
-    <h2><span class="num">04</span>Programme line-up</h2>
-    <div class="timeline">
-      <div class="day" data-num="Th">
-        <div class="date">Thursday 18th</div>
-        <h3>Arrivals & Ice-breaker</h3>
-        <ul>
-          <li>Arrivals</li>
-          <li>Ice-breaker</li>
-          <li>Evening session</li>
-        </ul>
-      </div>
-      <div class="day" data-num="Fr">
-        <div class="date">Friday 19th</div>
-        <h3>Prayer, seminars & the Gala</h3>
-        <ul>
-          <li>Morning devotion</li>
-          <li>Morning session</li>
-          <li>1 hour prayer charge</li>
-          <li>Seminar</li>
-          <li>Sports and BBQ afternoon</li>
-          <li>Gala / YPG Awards Night</li>
-        </ul>
-      </div>
-      <div class="day" data-num="Sa">
-        <div class="date">Saturday 20th</div>
-        <h3>Sermon on the Mount</h3>
-        <ul>
-          <li>Morning devotion</li>
-          <li>Sermon on the Mount</li>
-          <li>Seminar</li>
-          <li>Afternoon session, incl. football tournament</li>
-          <li>Revival night</li>
-        </ul>
-      </div>
-      <div class="day" data-num="Su">
-        <div class="date">Sunday 21st</div>
-        <h3>Joint service & departures</h3>
-        <ul>
-          <li>Joint service</li>
-          <li>Departures</li>
-        </ul>
+        <p>Keep your room key or camp badge safe at all times once issued.</p>
+        <div class="callout"><strong>Tip:</strong> don't put key cards behind your phone — this can cause demagnetisation or scanning issues.</div>
       </div>
     </div>
   </section>
 
   <section id="food">
-    <h2><span class="num">05</span>Food & dress code</h2>
+    <h2><span class="num">03</span>Food</h2>
     <div class="faq-item">
-      <button class="faq-q">What food can I expect?<span class="plus">+</span></button>
+      <button class="faq-q">What's the food situation?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>Feedback from last year has been taken on board — local Ghanaian dishes will be served. A detailed menu will be shared closer to the date.</p>
-      </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">What should I wear?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Dress comfortably, but modestly, to represent the Presbyterian Church of Ghana throughout the stay.</p>
-        <p>For the Gala/YPG Awards Night: tuxedo and evening dress. For Saturday evening, every guilder is asked to wear a touch of white. Don't forget sports gear for sports day — a packing list follows soon.</p>
+        <p>The menu is provided by the facility for the full stay. Please note the venue does not allow food brought in from external sources.</p>
+        <p>If you have any food allergies, let the district executives know ahead of time.</p>
       </div>
     </div>
   </section>
 
-  <section id="logistics">
-    <h2><span class="num">06</span>Other logistics</h2>
-    <div class="faq-item">
-      <button class="faq-q">I'm not part of the Presby church — can I still come?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Yes — everyone is welcome, including brothers and sisters from the North and South London Districts.</p>
+  <section id="programme">
+    <h2><span class="num">04</span>Full Programme</h2>
+    <p class="intro">The complete run of show, Thursday through Sunday. Times may shift slightly on the day — announcements will keep you posted.</p>
+    <div class="timeline">
+
+      <div class="day" data-num="Th">
+        <div class="date">Thursday · Arrival Day</div>
+        <h3>Arrival &amp; Welcome</h3>
+        <div class="daypart">
+          <div class="schedrow"><span class="time">3:00 – 4:00 PM</span><span class="activity">Arrival</span><span class="who">Welcome by executives</span></div>
+          <div class="schedrow"><span class="time">4:00 – 5:00 PM</span><span class="activity">Registration &amp; Check-in</span></div>
+          <div class="schedrow"><span class="time">5:00 – 6:00 PM</span><span class="activity">Welcome</span></div>
+          <div class="schedrow"><span class="time">6:00 – 7:30 PM</span><span class="activity">Dinner</span></div>
+        </div>
       </div>
-    </div>
-    <div class="faq-item">
-      <button class="faq-q">Will I be photographed or filmed?<span class="plus">+</span></button>
-      <div class="faq-a">
-        <p>Photos and videos will be taken throughout camp, including on social media and livestreams. If you'd prefer not to be included, email <strong>ypgmidlands@gmail.com</strong> with your full name stating so. No response is taken as consent to be included.</p>
+
+      <div class="day" data-num="Fr">
+        <div class="date">Friday</div>
+        <h3>Bible Study, Finance &amp; Career</h3>
+
+        <div class="daypart">
+          <div class="daypart-label">Morning</div>
+          <div class="schedrow"><span class="time">5:30 – 6:00 AM</span><span class="activity">Morning Devotion</span></div>
+          <div class="schedrow"><span class="time">6:00 – 6:30 AM</span><span class="activity">Aerobics</span><span class="who">Yaw Yeboah</span></div>
+          <div class="schedrow"><span class="time">6:30 – 7:00 AM</span><span class="activity">Freshen Up</span></div>
+          <div class="schedrow"><span class="time">7:00 – 8:15 AM</span><span class="activity">Breakfast</span></div>
+          <div class="schedrow"><span class="time">8:15 – 8:45 AM</span><span class="activity">Worship &amp; Praises</span><span class="who">City of Praise</span></div>
+          <div class="schedrow"><span class="time">8:45 – 10:00 AM</span><span class="activity">Bible Studies</span><span class="who">Grouping (15 min) → study (45 min) → share back (15 min)</span></div>
+          <div class="schedrow"><span class="time">10:00 – 10:10 AM</span><span class="activity">Break</span></div>
+          <div class="schedrow"><span class="time">10:10 – 10:25 AM</span><span class="activity">Song Ministration</span><span class="who">Genevieve</span></div>
+          <div class="schedrow"><span class="time">10:25 – 11:30 AM</span><span class="activity">Finance Talk, Q&amp;A</span><span class="who">Obed Nketiah</span></div>
+          <div class="schedrow"><span class="time">11:30 – 11:45 AM</span><span class="activity">Prayers on Finances</span><span class="who">Moses</span></div>
+        </div>
+
+        <div class="daypart">
+          <div class="daypart-label">Afternoon</div>
+          <div class="schedrow"><span class="time">12:00 – 1:15 PM</span><span class="activity">Lunch</span></div>
+          <div class="schedrow"><span class="time">1:15 – 2:00 PM</span><span class="activity">LinkedIn Unlocked</span><span class="who">Lilly Koranteng</span></div>
+          <div class="schedrow"><span class="time">2:00 – 2:45 PM</span><span class="activity">Prayers on Career</span><span class="who">Abena Kwaa Brefo</span></div>
+          <div class="schedrow"><span class="time">2:45 – 4:45 PM</span><span class="activity">Games</span></div>
+          <div class="schedrow"><span class="time">4:45 – 6:00 PM</span><span class="activity">Rest</span></div>
+        </div>
+
+        <div class="daypart">
+          <div class="daypart-label">Evening</div>
+          <div class="schedrow"><span class="time">6:00 – 7:30 PM</span><span class="activity">Dinner</span></div>
+          <div class="schedrow"><span class="time">7:35 – 9:30 PM</span><span class="activity">Evening Session — Letting Go</span><span class="who">Samuel Akosah</span></div>
+          <div class="schedrow"><span class="time">9:30 – 9:45 PM</span><span class="activity">Why Fast</span><span class="who">Juliana Nkansah</span></div>
+          <div class="schedrow"><span class="time">9:45 – 10:00 PM</span><span class="activity">Announcements &amp; Closing Prayer</span></div>
+        </div>
       </div>
-    </div>
-    <div class="callout">
-      <strong>Note:</strong> the programme times above are subject to change — check the official channels closer to the date for the finalised run of show.
+
+      <div class="day" data-num="Sa">
+        <div class="date">Saturday</div>
+        <h3>Sermon, Marriage Talk &amp; Anointing Service</h3>
+
+        <div class="daypart">
+          <div class="daypart-label">Morning</div>
+          <div class="schedrow"><span class="time">6:00 – 7:00 AM</span><span class="activity">Get Ready</span></div>
+          <div class="schedrow"><span class="time">7:15 – 8:00 AM</span><span class="activity">Morning Devotion</span></div>
+          <div class="schedrow"><span class="time">8:15 – 9:15 AM</span><span class="activity">Praises &amp; Worship</span><span class="who">Led by Samuel Akosah</span></div>
+          <div class="schedrow"><span class="time">9:20 – 11:20 AM</span><span class="activity">Sermon &amp; Prayers</span><span class="who">Mama Gifty Aboagye</span></div>
+          <div class="schedrow"><span class="time">11:30 AM – 12:00 PM</span><span class="activity">Song Ministration</span><span class="who">City Of Praise</span></div>
+        </div>
+
+        <div class="daypart">
+          <div class="daypart-label">Afternoon</div>
+          <div class="schedrow"><span class="time">12:00 – 1:00 PM</span><span class="activity">Lunch</span></div>
+          <div class="schedrow"><span class="time">1:00 – 2:30 PM</span><span class="activity">Exposition &amp; Marriage Talk</span><span class="who">Rev. Ebenezer Ahenkan</span></div>
+          <div class="schedrow"><span class="time">2:30 – 3:00 PM</span><span class="activity">Prayers for marriages &amp; generational patterns</span></div>
+          <div class="schedrow"><span class="time">5:00 – 6:00 PM</span><span class="activity">Bible Games</span></div>
+        </div>
+
+        <div class="daypart">
+          <div class="daypart-label">Evening</div>
+          <div class="schedrow"><span class="time">6:00 – 7:00 PM</span><span class="activity">Dinner</span></div>
+          <div class="schedrow"><span class="time">7:00 – 9:30 PM</span><span class="activity">Anointing Service</span><span class="who">Rev. Kofi Mensah and team</span></div>
+          <div class="schedrow"><span class="time">9:30 – 10:00 PM</span><span class="activity">Announcement</span></div>
+        </div>
+      </div>
+
+      <div class="day" data-num="Su">
+        <div class="date">Sunday</div>
+        <h3>Youth Service &amp; Departures</h3>
+        <div class="daypart">
+          <div class="schedrow"><span class="time">7:00 – 8:15 AM</span><span class="activity">Breakfast</span></div>
+          <div class="schedrow"><span class="time">9:00 – 10:00 AM</span><span class="activity">Check-out</span></div>
+          <div class="schedrow"><span class="time">1:00 PM</span><span class="activity">Youth Service</span></div>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <section id="support">
-    <h2><span class="num">07</span>Support the camp</h2>
+  <section id="pack">
+    <h2><span class="num">05</span>What to Pack</h2>
+    <p class="intro">On top of the essentials, come ready for these specific moments during camp:</p>
+    <div class="pack-grid">
+      <div class="pack-card">
+        <span class="tag">Friday AM</span>
+        <h3>Aerobics wear</h3>
+        <p>Something flexible and sporty for the morning fitness session with Yaw Yeboah.</p>
+      </div>
+      <div class="pack-card">
+        <span class="tag">Destiny Empowerment Service</span>
+        <h3>A touch of white</h3>
+        <p>Bring an item of white clothing to wear for the Destiny Empowerment Service.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="policies">
+    <h2><span class="num">06</span>Camp Policies</h2>
     <div class="faq-item">
-      <button class="faq-q">I'd like to support or sow a seed into this camp<span class="plus">+</span></button>
+      <button class="faq-q">Will there be filming and photography?<span class="plus">+</span></button>
       <div class="faq-a">
-        <p>Fill in the contact form on the website, or email <strong>ypgmidlands@gmail.com</strong>, and the team will be in touch. Every amount is appreciated — God bless you for it.</p>
+        <p>Filming will take place throughout the conference. If you have any concerns, contact Mavis Kwarteng or any of the district executives.</p>
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-q">Who's responsible for my belongings?<span class="plus">+</span></button>
+      <div class="faq-a">
+        <p>All guests are encouraged to look after their own personal belongings. Please don't leave items unattended — the organisers won't be liable for any loss.</p>
       </div>
     </div>
   </section>
@@ -555,7 +619,8 @@
 </main>
 
 <footer>
-  Leeds YPG · Youth Camp '24 — questions? <a href="mailto:ypgmidlands@gmail.com">ypgmidlands@gmail.com</a>
+  Presbyterian Church of Ghana · Midlands District Young People's Guild<br>
+  Follow us on Instagram &amp; TikTok: <a href="https://instagram.com/pcgypgmidlands_district" target="_blank" rel="noopener">@pcgypgmidlands_district</a>
   <div class="updated">This page is updated periodically — reload if you've had it open a while.</div>
 </footer>
 
