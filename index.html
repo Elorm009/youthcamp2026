@@ -9,16 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
  :root{
-  --ink:#211B17;
-  --ink-deep:#15110E;
-  --paper:#F8F4EC;
-  --card:#FFFCF7;
-  --ember:#A96F35;
-  --ruby:#7C2634;
-  --gold:#C8A45D;
-  --muted:#756B61;
-  --line: rgba(24,18,14,0.10);
-  --line-dark: rgba(250,246,238,0.16);
+  --ink:#17302D;
+  --ink-deep:#0D201D;
+  --paper:#F7F4EA;
+  --card:#FFFDF7;
+  --ember:#D98F2B;
+  --ruby:#C11F27;
+  --gold:#F2A93B;
+  --muted:#5C716D;
+  --line: rgba(13,32,29,0.10);
+  --line-dark: rgba(247,244,234,0.16);
  }
  *{box-sizing:border-box;}
  html{scroll-behavior:smooth;}
@@ -41,9 +41,9 @@
  .hero{
   position:relative;
   background:
-   linear-gradient(120deg, rgba(255,106,43,0.22) 0%, transparent 35%),
-   linear-gradient(300deg, rgba(214,40,40,0.28) 0%, transparent 40%),
-   radial-gradient(900px 480px at 20% -10%, #2A1F17 0%, var(--ink) 55%, var(--ink-deep) 100%);
+   linear-gradient(120deg, rgba(242,169,59,0.22) 0%, transparent 35%),
+   linear-gradient(300deg, rgba(193,31,39,0.28) 0%, transparent 40%),
+   radial-gradient(900px 480px at 20% -10%, #1C3D39 0%, var(--ink) 55%, var(--ink-deep) 100%);
   color:var(--paper);
   padding:3rem 1.5rem 2.6rem;
   overflow:hidden;
@@ -53,7 +53,7 @@
   position:absolute;
   top:-40%; right:-15%;
   width:70%; height:180%;
-  background:linear-gradient(115deg, transparent 42%, rgba(242,183,5,0.14) 46%, transparent 50%, rgba(255,106,43,0.14) 54%, transparent 58%);
+  background:linear-gradient(115deg, transparent 42%, rgba(242,169,59,0.16) 46%, transparent 50%, rgba(216,143,43,0.14) 54%, transparent 58%);
   pointer-events:none;
  }
  .hero-inner{max-width:780px; margin:0 auto; position:relative; z-index:1;}
@@ -99,7 +99,7 @@
   border-radius:3px;
   letter-spacing:0.03em;
   margin-bottom:0.35rem;
-  box-shadow:0 6px 18px rgba(214,40,40,0.35);
+  box-shadow:0 6px 18px rgba(193,31,39,0.35);
  }
  .hero p.lede{
   max-width:54ch;
@@ -238,7 +238,7 @@
   padding:0 1.1rem;
  }
  .faq-item.open .faq-a{padding-bottom:1rem;}
- .faq-a p{margin:0; font-size:0.94rem; color:#3a352e;}
+ .faq-a p{margin:0; font-size:0.94rem; color:#26433F;}
  .faq-a p + p{margin-top:0.6rem;}
  .faq-a ul{margin:0.5rem 0 0; padding-left:1.1rem;}
  .faq-a li{font-size:0.94rem; margin-bottom:0.3rem;}
@@ -341,7 +341,7 @@
  }
 
  .callout{
-  background:#FDEEE6;
+  background:#F7ECD8;
   border-left:3px solid var(--ruby);
   padding:0.9rem 1.1rem;
   border-radius:12px;
@@ -431,9 +431,9 @@ body {
 }
 .hero {
   background:
-    radial-gradient(circle at 85% 15%, rgba(255,210,63,0.22), transparent 24%),
-    radial-gradient(circle at 10% 80%, rgba(232,58,89,0.24), transparent 28%),
-    linear-gradient(135deg, #171019 0%, #25121A 48%, #120D0B 100%);
+    radial-gradient(circle at 85% 15%, rgba(242,169,59,0.22), transparent 24%),
+    radial-gradient(circle at 10% 80%, rgba(193,31,39,0.24), transparent 28%),
+    linear-gradient(135deg, #12302C 0%, #1C3E3A 48%, #0A1917 100%);
 }
 .hero h1,
 section h2,
@@ -479,8 +479,8 @@ body {
 }
 .hero {
   background:
-    radial-gradient(700px 420px at 90% -10%, rgba(200,164,93,0.18), transparent 60%),
-    linear-gradient(135deg, #1B1511 0%, #251D17 55%, #120F0C 100%);
+    radial-gradient(700px 420px at 90% -10%, rgba(242,169,59,0.20), transparent 60%),
+    linear-gradient(135deg, #14302D 0%, #1F433E 55%, #0A1917 100%);
 }
 .hero h1,
 section h2,
@@ -522,11 +522,11 @@ section h2 {
   font-weight:600;
 }
 .pack-card {
-  background:linear-gradient(145deg, #211B17, #30251D);
-  box-shadow:0 10px 28px rgba(21,17,14,0.12);
+  background:linear-gradient(145deg, #17302D, #234A45);
+  box-shadow:0 10px 28px rgba(10,25,23,0.16);
 }
 .callout {
-  background:#F3E9DC;
+  background:#F5EAD5;
 }
 .schedrow .activity {
   font-weight:600;
@@ -567,6 +567,7 @@ section h2 {
   <a href="#programme">Programme</a>
   <a href="#pack">Pack List</a>
   <a href="#policies">Policies</a>
+  <a href="#unfiltered">Youth Unfiltered</a>
  </div>
 </nav>
 
@@ -632,12 +633,12 @@ section h2 {
     <h3>Arrival &amp; Welcome</h3>
     <div class="daypart">
      <div class="schedrow"><span class="time">3:00 – 4:00 PM</span><span class="activity">Arrival</span></div>
-     <div class="schedrow"><span class="time">4:00 – 5:00 PM</span><span class="activity">Registration &amp; Check-in</span><span class="who">Welcome</span></div>
-     <div class="schedrow"><span class="time">5:00 – 6:00 PM</span><span class="activity">Welcome</span><span class="who">Welcome</span></div>
+     <div class="schedrow"><span class="time">4:00 – 5:00 PM</span><span class="activity">Registration &amp; Check-in</span><span class="who"></span></div>
+     <div class="schedrow"><span class="time">5:00 – 6:00 PM</span><span class="activity">Welcome</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">6:00 – 7:30 PM</span><span class="activity">Dinner</span></div>
      <div class="schedrow"><span class="time">7:30 – 8:30 PM</span><span class="activity">Camp Clash of the Guilders</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">8:30 – 9:30 PM</span><span class="activity">Evening Devotion</span><span class="who"></span></div>
-     <div class="schedrow"><span class="time">9:30 – 9:45 PM</span><span class="activity">Announcement</span><span class="who">Secretary</span></div>
+     <div class="schedrow"><span class="time">9:30 – 9:45 PM</span><span class="activity">Announcement</span><span class="who"></span></div>
     </div>
    </div>
 
@@ -647,12 +648,12 @@ section h2 {
 
     <div class="daypart">
      <div class="daypart-label">Morning</div>
-     <div class="schedrow"><span class="time">5:30 – 6:00 AM</span><span class="activity">Morning Devotion</span><span class="who">Thelma Ofosu-Yeboah</span></div>
+     <div class="schedrow"><span class="time">5:30 – 6:00 AM</span><span class="activity">Morning Devotion</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">6:00 – 6:30 AM</span><span class="activity">Aerobics</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">6:30 – 7:00 AM</span><span class="activity">Freshen Up</span></div>
      <div class="schedrow"><span class="time">7:00 – 8:15 AM</span><span class="activity">Breakfast</span></div>
      <div class="schedrow"><span class="time">8:15 – 8:45 AM</span><span class="activity">Worship and Praises</span><span class="who"></span></div>
-     <div class="schedrow"><span class="time">8:45 – 10:00 AM</span><span class="activity">Bible Studies</span><span class="who">First 15 minutes to group them, then 45 minutes, then 15 minutes to share</span></div>
+     <div class="schedrow"><span class="time">8:45 – 10:00 AM</span><span class="activity">Bible Studies</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">10:00 – 10:10 AM</span><span class="activity">Break</span></div>
      <div class="schedrow"><span class="time">10:10 – 10:25 AM</span><span class="activity">Song Ministration</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">10:25 – 11:30 AM</span><span class="activity">Finance Seminar</span><span class="who"></span></div>
@@ -673,7 +674,7 @@ section h2 {
      <div class="schedrow"><span class="time">6:00 – 7:00 PM</span><span class="activity">Dinner</span></div>
      <div class="schedrow"><span class="time">7:15 – 9:15 PM</span><span class="activity">Evening Session — Letting Go</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">9:15 – 9:45 PM</span><span class="activity">WHY FAST</span><span class="who"></span></div>
-     <div class="schedrow"><span class="time">9:45 – 10:00 PM</span><span class="activity">Announcements &amp; Closing Prayer</span><span class="who">Secretary</span></div>
+     <div class="schedrow"><span class="time">9:45 – 10:00 PM</span><span class="activity">Announcements &amp; Closing Prayer</span><span class="who"></span></div>
     </div>
    </div>
 
@@ -687,7 +688,7 @@ section h2 {
      <div class="schedrow"><span class="time">7:15 – 8:00 AM</span><span class="activity">Morning Devotion</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">8:15 – 9:15 AM</span><span class="activity">Praises &amp; Worship</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">9:20 – 11:20 AM</span><span class="activity">Sermon and Prayers</span><span class="who"></span></div>
-     <div class="schedrow"><span class="time">11:30 AM – 12:00 PM</span><span class="activity">Song Ministration</span><span class="who">City Of Praise</span></div>
+     <div class="schedrow"><span class="time">11:30 AM – 12:00 PM</span><span class="activity">Song Ministration</span><span class="who"></span></div>
     </div>
 
     <div class="daypart">
@@ -696,8 +697,8 @@ section h2 {
      <div class="schedrow"><span class="time">1:00 – 2:30 PM</span><span class="activity">Exposition &amp; Marriage Talk</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">2:30 – 3:00 PM</span><span class="activity">Prayers for marriages, generational patterns</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">3:00 – 3:15 PM</span><span class="activity">Break</span></div>
-     <div class="schedrow"><span class="time">3:15 – 3:45 PM</span><span class="activity">YOUTH UNFILTERED — Things We Don’t Talk About in Church</span><span class="who">Panel discussion</span></div>
-     <div class="schedrow"><span class="time">3:45 – 5:00 PM</span><span class="activity">YPG GOT TALENT (SPOKEN WORDS/DANCE/DRAMA)</span><span class="who">A platform for the Guilders to perform</span></div>
+     <div class="schedrow"><span class="time">3:15 – 3:45 PM</span><span class="activity">YOUTH UNFILTERED — Things We Don’t Talk About in Church</span><span class="who"></span></div>
+     <div class="schedrow"><span class="time">3:45 – 5:00 PM</span><span class="activity">YPG GOT TALENT (SPOKEN WORDS/DANCE/DRAMA)</span><span class="who"></span></div>
      <div class="schedrow"><span class="time">5:00 – 6:00 PM</span><span class="activity">Bible Games</span><span class="who"></span></div>
     </div>
 
@@ -705,7 +706,7 @@ section h2 {
      <div class="daypart-label">Evening</div>
      <div class="schedrow"><span class="time">6:00 – 7:00 PM</span><span class="activity">Dinner</span></div>
      <div class="schedrow"><span class="time">7:00 – 9:30 PM</span><span class="activity">Destiny Empowerment Service</span><span class="who"></span></div>
-     <div class="schedrow"><span class="time">9:30 – 10:00 PM</span><span class="activity">Announcement</span><span class="who">Secretary</span></div>
+     <div class="schedrow"><span class="time">9:30 – 10:00 PM</span><span class="activity">Announcement</span><span class="who"></span></div>
     </div>
    </div>
 
@@ -753,6 +754,12 @@ section h2 {
     <p>All guests are encouraged to look after their own personal belongings. Please don't leave items unattended — the organisers won't be liable for any loss.</p>
    </div>
   </div>
+ </section>
+
+ <section id="unfiltered">
+  <h2><span class="num">07</span>Youth Unfiltered</h2>
+  <p class="intro">Got a question you'd rather not ask out loud? Submit it ahead of time and it'll be raised anonymously during the session.</p>
+  <p><a href="https://www.ypgmld.org.uk/youth-camp-2026" target="_blank" rel="noopener" style="color:var(--ruby); font-weight:600;">Anonymous Q&amp;A — Please submit your anonymous question here</a></p>
  </section>
 
 </main>
